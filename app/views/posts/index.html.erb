@@ -1,9 +1,3 @@
-<h3>Welcome!</h3>
-<% @posts.each do |post| %>
-<div class="well"><p><%= post.title %></p>
-<p><%= post.description %></p>
-<p><%= post.url %></p>
-<p><%= @user.username %></p>
-</div>
-<% end %>
-<p>This is the Postit template. You've access the PostsController, index action. This is the index template. Find me under app/views/posts folder.</p>
+<%= render "shared/title", title: 'All Posts'%>
+
+<%= render 'post', post: @posts %>

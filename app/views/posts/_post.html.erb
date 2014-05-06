@@ -1,0 +1,17 @@
+<% post.each do |post| %>
+
+<div class="row">
+ <div class="span8 well">
+ 	<%= render post.categories %>
+ 	<h4><%= link_to post.title, clean_url(post.url)%></h4>
+ 	<p><%= post.description %></p>
+    <p><%= post.url %></p>
+    <p></p>
+    <p><span class="quiet">Posted by</span> <%=link_to post.creator.username,user_path(post.creator) %> <small> at <%= display_time(post.created_at) %></small>
+    </p>
+    <small>
+    	<span>
+    	  <%= link_to "#{post.comments.size} comments", post_path(post) %></span></small>
+ </div>
+</div>
+<% end %>

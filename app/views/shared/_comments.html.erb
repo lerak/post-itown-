@@ -1,0 +1,13 @@
+<% post_link ||= false %>
+<h5>Comments:</h5>
+
+    <% obj.comments.each do |comment|%>
+      <div class="well span8">
+      	<% if post_link  %>
+      	<p><em>Comment belongs to :<%= link_to "#{comment.post.title}",post_path(comment) %></em></p>
+      	<% end %>
+        <em>"<%= comment.body %>"</em>
+        <br/>
+       <span class="quiet">Posted by</span> <%= link_to  comment.creator.username,user_path(comment.creator) %> <small> at <%= display_time(comment.created_at) %></small>
+      </div>
+    <% end %>
