@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
-	def new 
-	end
+	def new ;end
 
 	def create 
 		user = User.where(username: params[:username]).first
@@ -9,11 +8,9 @@ class SessionsController < ApplicationController
 			session[:user_id] = user.id
 			flash[:notice]= "you've logged in"
 			redirect_to root_path
-        
-		else
+        else
 			flash[:error]= 'Failed to log in!'
 			redirect_to login_path
-			
 		end
 	end
 

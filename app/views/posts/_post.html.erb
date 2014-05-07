@@ -1,6 +1,19 @@
 <% post.each do |post| %>
 
 <div class="row">
+  <% if logged_in? %>
+	<div class="span0 well text-center">
+		<%= link_to vote_post_path(post,vote: true),method: 'post' do %>
+      <i class="icon-arrow-up"></i>
+      <% end %>
+       <br></br>
+      <span><%= post.total_votes %></span>
+      <br></br>
+      <%= link_to vote_post_path(post,vote: false), method: 'post'  do %>
+      <i class="icon-arrow-down"></i>
+      <% end %>
+	</div>
+  <% end %>
  <div class="span8 well">
  	<%= render post.categories %>
  	<h4><%= link_to post.title, clean_url(post.url)%></h4>

@@ -15,5 +15,5 @@
 <% if params[:tab].nil? %>
  <%= render 'posts/post', post: @user.posts %>
 <% else %>
-  <%= render 'shared/comments', obj: @user, post_link: true %>
+  <%= render 'comments/comments', obj: @user, post_link: true %>
 <% end %> 
