@@ -25,8 +25,10 @@ class CommentsController < ApplicationController
     vote= Vote.create(voteable: comment,creator: current_user,vote: params[:vote])
     if vote.valid?
       flash[:notice]='Vote was counted'
-      redirect_to :back
+    else
+      flash[:error]='You can only vote once !'
     end
+    redirect_to :back
   end
 
 end 
